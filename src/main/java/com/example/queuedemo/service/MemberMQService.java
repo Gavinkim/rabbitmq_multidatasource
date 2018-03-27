@@ -34,9 +34,9 @@ public class MemberMQService {
     @Autowired
     MemberService memberService;
 
-    @Value("${alimtalk.rabbitmq.member.exchange}")
+    @Value("${rabbitmq.member.exchange}")
     private String MEMBER_EXCHANGE;
-    @Value("${alimtalk.rabbitmq.member.routingkey}")
+    @Value("${rabbitmq.member.routingkey}")
     private String MEMBER_ROUTING_KEY;
 
 
@@ -47,7 +47,7 @@ public class MemberMQService {
 
 
     @Async(value = "threadPoolTaskExecutor")
-    @RabbitListener(queues =  "${alimtalk.rabbitmq.member.queue}")
+    @RabbitListener(queues =  "${rabbitmq.member.queue}")
     public void memberReceiveMessage( Member member)throws ShutdownSignalException,InterruptedException,SocketException,ListenerExecutionFailedException {
         try {
             if(memberList.size()>=10){
