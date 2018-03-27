@@ -21,11 +21,11 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
 public class RabbitConfig implements RabbitListenerConfigurer {
 
     //member queue setup
-    @Value("${alimtalk.rabbitmq.member.queue}")
+    @Value("${rabbitmq.member.queue}")
     private String MEMBER_QUEUE;
-    @Value("${alimtalk.rabbitmq.member.exchange}")
+    @Value("${rabbitmq.member.exchange}")
     private String MEMBER_EXCHANGE;
-    @Value("${alimtalk.rabbitmq.member.routingkey}")
+    @Value("${rabbitmq.member.routingkey}")
     private String MEMBER_ROUTING_KEY;
 
 
